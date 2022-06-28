@@ -117,15 +117,15 @@ public class WatermarkStep extends AbstractProcessingStep {
 
                             pdDocument.protect(spp);
 
-                            pdDocument.save(uploadDir + "/watermarked_" + name);
+                            pdDocument.save(uploadDir + name);
 
-                            File newPdf = new File(uploadDir + "/watermarked_" + name);
+                            File newPdf = new File(uploadDir + name);
 
                             FileInputStream fileInputStream = new FileInputStream(newPdf);
 
                             Bitstream newBitstream = bitstreamService.create(context, fileInputStream);
 
-                            newBitstream.setName(context, "watermarked_" + name);
+                            newBitstream.setName(context, name);
 
                             //Use description & source of the original
                             newBitstream.setDescription(context, description);
